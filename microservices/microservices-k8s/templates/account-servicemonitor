@@ -1,0 +1,12 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: account-microservice-service-monitor
+spec:
+  selector:
+    matchLabels:
+      app: account
+  endpoints:
+  - port: "8080"
+    path: "/actuator/prometheus"

@@ -1,0 +1,12 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: fastapi-microservice-service-monitor
+spec:
+  selector:
+    matchLabels:
+      app: fastapi
+  endpoints:
+  - port: "8000"
+    path: "/metrics"

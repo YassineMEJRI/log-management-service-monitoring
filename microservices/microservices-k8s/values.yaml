@@ -1,0 +1,6 @@
+pullPolicy: IfNotPresent
+image:
+  fastapi: fastapi:0.0.1
+  account: accountmicroservice:0.0.1
+  fraud: fraudmicroservice:0.0.1
+  postgres: postgres

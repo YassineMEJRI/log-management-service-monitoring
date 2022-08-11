@@ -1,0 +1,5 @@
+apiVersion: v2
+name: docker-compose
+description: A generated Helm Chart for docker-compose from Skippbox Kompose
+type: application
+version: 0.0.1
