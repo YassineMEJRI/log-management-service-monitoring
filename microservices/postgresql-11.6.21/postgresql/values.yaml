@@ -131,7 +131,7 @@ auth:
   password: "password"
   ## @param auth.database Name for a custom database to create
   ##
-  database: "account"
+  database: ""
   ## @param auth.replicationUsername Name of the replication user
   ##
   replicationUsername: repl_user
@@ -327,7 +327,10 @@ primary:
     ##      #!/bin/sh
     ##      echo "Do something."
     ##
-    scripts: {}
+    scripts: 
+      create_db_init_script.sql: |
+         create database account;
+         create database fraud;
     ## @param primary.initdb.scriptsConfigMap ConfigMap with scripts to be run at first boot
     ## NOTE: This will override `primary.initdb.scripts`
     ##
@@ -338,10 +341,10 @@ primary:
     scriptsSecret: ""
     ## @param primary.initdb.user Specify the PostgreSQL username to execute the initdb scripts
     ##
-    user: ""
+    user: "yassine"
     ## @param primary.initdb.password Specify the PostgreSQL password to execute the initdb scripts
     ##
-    password: ""
+    password: "password"
   ## Configure current cluster's primary server to be the standby server in other cluster.
   ## This will allow cross cluster replication and provide cross cluster high availability.
   ## You will need to configure pgHbaConfiguration if you want to enable this feature with local cluster replication enabled.
